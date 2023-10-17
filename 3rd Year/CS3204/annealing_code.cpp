@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_N = 500;
 const int K = 1000; // Annealing iterations
 
 int f(vector<int> &q, int n) {
@@ -44,12 +43,32 @@ void anneal_queens(int n) {
 
 int main() {
     srand(1);
+    vector<int> n_vals;
     vector<double> times;
-    for (int i = 5; i <= MAX_N; i += 5) {
+    const int MAX_N = 500;
+    const int BLOCK_SIZE = MAX_N / 100;
+    for (int i = BLOCK_SIZE; i <= MAX_N; i += BLOCK_SIZE) {
         int start_time = clock();
         anneal_queens(i);
+        n_vals.push_back(i);
         times.push_back((clock() - start_time) / double(CLOCKS_PER_SEC));
-        cout << i << ": " << times.back() << "\n";
+        // cout << i << ": " << times.back() << "\n";
     }
+    cout << "n_vals = [";
+    for (int i = 0; i < n_vals.size(); i++) {
+        cout << n_vals[i];
+        if (i + 1 < n_vals.size()) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n";
+    cout << "times = [";
+    for (int i = 0; i < times.size(); i++) {
+        cout << times[i];
+        if (i + 1 < times.size()) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n";
     return 0;
 }
