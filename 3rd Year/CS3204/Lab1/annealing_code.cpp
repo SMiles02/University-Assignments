@@ -26,7 +26,7 @@ void anneal_queens(int n) {
     int ans = f(v, n);
     double t = 50, mpl = pow((1e-5) / t, (double) 1 / K);
     for (int i = 0; i < K && ans < n; i++) {
-        t *= 0.99;
+        t *= mpl;
         vector<int> u = v;
         swap(u[rand() % n], u[rand() % n]);
         int new_val = f(u, n);
@@ -45,7 +45,7 @@ int main() {
     srand(1);
     vector<int> n_vals;
     vector<double> times;
-    const int MAX_N = 500;
+    const int MAX_N = 1000;
     const int BLOCK_SIZE = MAX_N / 100;
     for (int i = BLOCK_SIZE; i <= MAX_N; i += BLOCK_SIZE) {
         int start_time = clock();
