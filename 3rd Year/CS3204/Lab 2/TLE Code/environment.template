@@ -1,0 +1,2 @@
+export BOT_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXX.XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXX" // for security reasons, I have removed these details from the University Assignments repository
+export LOGGING_COG_CHANNEL_ID="XXXXXXXXXXXXXXXXXX"
